@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild', // Use esbuild (default) instead of terser
     // Ensure compatibility with older browsers
     target: 'es2015',
     rollupOptions: {
