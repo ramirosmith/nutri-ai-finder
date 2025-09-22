@@ -11,9 +11,11 @@
 # Instalar dependencias
 npm install
 
-# Crear build de producción
+# Crear build de producción (IMPORTANTE: usar build, no build:dev)
 npm run build
 ```
+
+**IMPORTANTE**: NO uses `npm run build:dev` para MAMP. Siempre usa `npm run build` para generar archivos optimizados.
 
 ### 2. Configurar MAMP
 
@@ -77,13 +79,22 @@ Si quieres usar una carpeta diferente:
 
 ## Solución de Problemas
 
+### Error: GET /src/main.tsx 404 (Not Found)
+**Causa**: Estás accediendo a los archivos fuente en lugar de los archivos compilados.
+
+**Solución**:
+1. Ejecutar `npm run build` (NO `npm run build:dev`)
+2. Copiar SOLO el contenido de la carpeta `dist/` a MAMP
+3. NO copiar archivos fuente (`src/`, `node_modules/`, etc.)
+
 ### Error 404 en Rutas
 - Verificar que el archivo `.htaccess` esté en la carpeta raíz
 - Asegurar que mod_rewrite esté habilitado en Apache
 
 ### Recursos No Cargan
-- Verificar que la ruta base en `vite.config.ts` coincida con la carpeta en MAMP
+- Verificar que la ruta base en `vite.config.ts` coincida con la carpeta en MAMP  
 - Revisar permisos de archivos (755 para carpetas, 644 para archivos)
+- Asegurar que copiaste SOLO el contenido de `dist/`, no el proyecto completo
 
 ### API de Gemini No Funciona
 - Verificar que la API key esté configurada correctamente
