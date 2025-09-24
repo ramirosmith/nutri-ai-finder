@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Base path for MAMP deployment - change 'healthy-recipe-finder' to your desired folder name
+  // Base path for GitHub Pages deployment - change to your repository name
   base: mode === 'production' ? '/healthy-recipe-finder/' : '/',
   server: {
     host: "::",
